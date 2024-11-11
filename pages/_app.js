@@ -1,24 +1,17 @@
 // pages/_app.js
-import { useEffect } from "react";
+import { Inter } from "next/font/google";
+import "../styles/globals.css";
 import Script from "next/script";
-import "../styles/globals.css"; // ใช้ไฟล์ CSS หลักของโปรเจค (ถ้ามี)
 
-function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    // เริ่มต้น Web App SDK ของ Telegram
-    if (typeof window !== "undefined") {
-      const WebApp = window.Telegram.WebApp;
-      WebApp.ready();
-    }
-  }, []);
+const inter = Inter({ subsets: ["latin"] });
 
+export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* โหลด SDK ของ Telegram */}
       <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
-      <Component {...pageProps} />
+      <div className={inter.className}>
+        <Component {...pageProps} />
+      </div>
     </>
   );
 }
-
-export default MyApp;
