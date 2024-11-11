@@ -13,7 +13,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="p-4">
+    <main className="p-4 text-white">
       {userData ? (
         <>
           <h1 className="text-2xl font-bold mb-4">User Data</h1>
